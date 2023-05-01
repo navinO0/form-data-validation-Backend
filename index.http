@@ -1,11 +1,11 @@
 
 
-get http://localhost:3002/persons/
+get http://localhost:3003/person/
 
 ###
 
 
-POST http://localhost:3002/person/
+POST http://localhost:3003/person/
 Content-Type: application/json
 
 {"name":"naveenkumar",

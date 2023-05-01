@@ -2,11 +2,12 @@ const express = require("express");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const path = require("path");
+const cors = require("cors");
 
 const databasePath = path.join(__dirname, "formData.db");
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 let database = null;
@@ -18,8 +19,8 @@ const initializeDbAndServer = async () => {
       driver: sqlite3.Database,
     });
 
-    app.listen(3002, () =>
-      console.log("Server Running at http://localhost:3002/")
+    app.listen(3003, () =>
+      console.log("Server Running at http://localhost:3003/")
     );
   } catch (error) {
     console.log(`DB Error: ${error.message}`);
