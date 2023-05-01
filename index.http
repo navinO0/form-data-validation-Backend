@@ -1,0 +1,32 @@
+
+
+get http://localhost:3002/persons/
+
+###
+
+
+POST http://localhost:3002/person/
+Content-Type: application/json
+
+{"name":"naveenkumar",
+"age":"34",
+"gender":"female",
+"MobileNumber":"8008638625",
+"GovtID":"PAN",
+"AadharNumber":"dfgh",
+"guardianType":"D/O",
+"gardian":"munemma",
+"email":"ynavingmailcom",
+"emergencyNumber":"4545454545",
+"address":"f2_83_block",
+"state":"Jharkhand",
+"city":"Ramgarh",
+"country":"India",
+"pincode":"517520",
+"occupation":"nothing",
+"religion":"Judaism",
+"maritalStatus":"unmarried",
+"bloodGroup":"O+",
+"nationality":"India",
+"PANNumber":"abcde1234f"
+}
