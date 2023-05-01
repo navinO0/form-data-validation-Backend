@@ -32,7 +32,7 @@ initializeDbAndServer();
 app.get("/person/", async (request, response) => {
   const getAllPersons = `
     SELECT
-      name,age,gender,MobileNumber, address,state, city, country, pincode, guardianType, gardian, nationality
+      id,name,age,gender,MobileNumber, address,state, city, country, pincode, guardianType, gardian, nationality
     FROM
       person;`;
   const getAllPersonsArray = await database.all(getAllPersons);
