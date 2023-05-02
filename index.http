@@ -1,21 +1,21 @@
 
 
-get http://localhost:3003/person/
+get http://localhost:3004/person/
 
 ###
 
 
-POST http://localhost:3003/person/
+POST http://localhost:3004/person/
 Content-Type: application/json
 
 {"name":"naveenkumar",
 "age":"34",
 "gender":"female",
-"MobileNumber":"8008638625",
+"mobileNumber":"8008638625",
 "GovtID":"PAN",
-"AadharNumber":"dfgh",
+"aadhaarNumber":"dfgh",
 "guardianType":"D/O",
-"gardian":"munemma",
+"gurdian":"munemma",
 "email":"ynavingmailcom",
 "emergencyNumber":"4545454545",
 "address":"f2_83_block",
@@ -28,5 +28,5 @@ Content-Type: application/json
 "maritalStatus":"unmarried",
 "bloodGroup":"O+",
 "nationality":"India",
-"PANNumber":"abcde1234f"
+"panNumber":"abcde1234f"
 }

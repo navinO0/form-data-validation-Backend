@@ -19,8 +19,8 @@ const initializeDbAndServer = async () => {
       driver: sqlite3.Database,
     });
 
-    app.listen(3003, () =>
-      console.log("Server Running at http://localhost:3003/")
+    app.listen(3004, () =>
+      console.log("Server Running at http://localhost:3004/")
     );
   } catch (error) {
     console.log(`DB Error: ${error.message}`);
@@ -33,7 +33,7 @@ initializeDbAndServer();
 app.get("/person/", async (request, response) => {
   const getAllPersons = `
     SELECT
-      id,name,age,gender,MobileNumber, address,state, city, country, pincode, guardianType, gardian, nationality
+      id,name,age,gender,MobileNumber, address,state, city, country, pincode, guardianType, guardianName, nationality,govtID,panNumber,aadhaarNumber
     FROM
       person;`;
   const getAllPersonsArray = await database.all(getAllPersons);
@@ -46,11 +46,11 @@ app.post("/person/", async (request, response) => {
     name,
     age,
     gender,
-    MobileNumber,
-    GovtID,
-    AadharNumber,
+    mobileNumber,
+    govtId,
+    aadhaarNumber,
     guardianType,
-    gardian,
+    guardian,
     email,
     emergencyNumber,
     address,
@@ -63,10 +63,11 @@ app.post("/person/", async (request, response) => {
     maritalStatus,
     bloodGroup,
     nationality,
+    panNumber,
   } = data;
   const queryPost = `
-    insert into person(name,age,gender,MobileNumber,GovtID,AadharNumber,guardianType,gardian,email, emergencyNumber,address,state,city,country,pincode,occupation,religion,maritalStatus,bloodGroup,nationality)
-    values('${name}','${age}','${gender}','${MobileNumber}','${GovtID}', '${AadharNumber}','${guardianType}','${gardian}','${email}','${emergencyNumber}','${address}','${state}','${city}','${country}','${pincode}','${occupation}','${religion}','${maritalStatus}','${bloodGroup}','${nationality}');
+    insert into person(name,age,gender,mobileNumber,govtId,aadhaarNumber,guardianType,guardianName,email, emergencyNumber,address,state,city,country,pincode,occupation,religion,maritalStatus,bloodGroup,nationality,panNumber)
+    values('${name}','${age}','${gender}','${mobileNumber}','${govtId}', '${aadhaarNumber}','${guardianType}','${guardian}','${email}','${emergencyNumber}','${address}','${state}','${city}','${country}','${pincode}','${occupation}','${religion}','${maritalStatus}','${bloodGroup}','${nationality}','${panNumber}');
     `;
 
   const dbResponse = await database.run(queryPost);
